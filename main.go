@@ -7,5 +7,9 @@ func main() {
 	r.GET("/hello", func(c *gin.Context) {
 		c.String(200, "Hello, World!")
 	})
+	r.GET("/hello/:name", func(c *gin.Context) {
+		name := c.Param("name")
+		c.String(200, "Hello, "+name)
+	})
 	r.Run()
 }
